@@ -1,0 +1,35 @@
+  <nav class="navbar navbar-fixed-top">
+    <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse"
+    data-target="#navigation">
+    &#9776;
+    </button>
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <div class="collapse navbar-toggleable-xs" id="navigation">
+      <ul class="nav nav-pills">
+          <li class="nav-item"><a class="nav-link" href="#welcome">Welcome</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li class="nav-item dropdown pull-xs-right">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">
+                  {{ minititle }} <span class="caret"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profile-modal">
+                    <i class="fa fa-user"></i> Profile
+                  </a>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settings-modal">
+                    <i class="fa fa-cogs"></i> Settings
+                  </a>
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="fa fa-sign-out"></i> Logout
+                  </a>
+              </div>
+        </li>
+      </ul>
+    </div>
+  </nav>

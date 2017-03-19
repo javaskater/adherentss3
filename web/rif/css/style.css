@@ -1,0 +1,28 @@
+/*
+* Adapting for the RIF
+* (To be replaced by SASS compilation in the future)
+*/
+
+.jaune {
+  background-color: #fff687;
+}
+.jaune.alternate {
+  background-color: #fffbcc;
+}
+
+.vert {
+  background-color: #cae09c;
+}
+
+.vert.alternate {
+  background-color: #eaf1cc;
+}
+
+/* see jumbotron class
+* Too separate from the fixed Toolbar
+*/
+.rif_list{
+	padding: 4rem 2rem;
+}
+
+

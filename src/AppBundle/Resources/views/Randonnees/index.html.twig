@@ -1,0 +1,66 @@
+{# app/Resources/views/randonnees/index.html.twig #}
+{% extends 'rbase.html.twig' %}
+{% block title %}{{ full_title }}{% endblock %}
+{% block header %}
+    {% include 'AppBundle:Randonnees:header_bar.html.twig' with {'minititle' : short_title, 'title' : full_title} %}
+{% endblock %}
+{% block main %}
+    <div class="container-fluid rif_list">
+        <table class="table table-bordered">
+              <!--<thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Titre</th>
+                      <th>Animateur</th>
+                      <th>Distance/Durée</th>
+                      <th>Gare et heure de départ</th>
+                      <th>Gare et Heure d'arrivée</th>
+                      <th>Allure</th>
+                  </tr>
+              </thead>-->
+              <tbody>
+                  {% set indice_ligne = 0 %}
+                  {% set langue = "fr" %}
+                  {% for r in randonnees %}
+                      <!--http://twig.sensiolabs.org/doc/functions/cycle.html-->
+                      {% set idrando = r.getCle() %}
+                      {% set jourrando = r.getDate() %}
+                      {% set row_main_class = cycle(["vert","jaune"], jourrando.format('d')) %}
+                      {% set row_classe = row_main_class ~ ' ' ~ cycle(["","alternate"], indice_ligne) %}
+                      <tr id="{{ idrando }}" class="{{ row_classe }}">
+                          <td>{{jourrando | daterif(langue)}}</td>
+                          <td>
+                          {% if (r.getTyperando() == "Surprise") %}
+                              <i class="fa fa-gift"></i>
+                          {% endif %}
+                          {% if (r.getNbCommentaires() > 0) %}
+                              <i class="fa fa-exclamation-triangle"></i>
+                          {% endif %}
+                          {{r.getTitre()}}
+                          </td>
+                          <td>{{r.getNomprogramme()}}</td>
+                          <td>{{r | distancerif}}</td>
+                          <td>{{r.getHeuredepartaller() | heurerif}} - {{r.getAllergaredepart()}}</td>
+                          <td>{{r.getHeuredepartretour() | heurerif}} - {{r.getRetourgaredepart()}}</td>
+                          <td>
+                              <div class="rifbouton" cle_rj={{ idrando }} hikelevel_rj={{ r.getAllure() }} bgcolor_rj={{row_main_class}} >
+                              </div>
+                          </td>
+                      </tr>
+                      {% set indice_ligne = indice_ligne + 1 %}
+                  {% endfor %}
+              </tbody>
+          </table>
+      <div id="uneRandoJour"></div>
+  </div>
+{% endblock %}
+{% block otherjavascripts %}
+    <div id="jqueryexample"></div>
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+     -->
+    <script src="{{ asset('rif/bundle.js') }}"></script>
+    <script lang="javascript">
+
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('rif/node_modules/bootstrap/dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('rif/node_modules/components-font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('rif/css/style.css') }}" />
+{% endblock %}
+{% block title %}XXXXXXXXXXXXXXXXx{% endblock %}
+{% block body %}
+      {% block header %}{% endblock %}
+      {% block main %}{% endblock %}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('rif/node_modules/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('rif/node_modules/tether/dist/js/tether.min.js') }}"></script>
+    <script src="{{ asset('rif/node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+{% block otherjavascripts %}{% endblock %}
+{% endblock %}
